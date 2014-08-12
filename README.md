@@ -19,7 +19,8 @@ Notes and documentation
 #TODO
 
 #How it is done?
-
+##Overview
+![Alt text](img/lttng-di.png "High level diagram")
 ##Structures
 struct tracepoint
 struct lttng_probes_desc;
