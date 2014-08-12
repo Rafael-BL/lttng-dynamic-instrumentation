@@ -22,7 +22,11 @@ Notes and documentation
 #TODO
 
 #How it is done?
+##Tools
 
+Dyninst
+website: http://www.dyninst.org/
+git: http://git.dyninst.org/ 
 
 ##Structures
 N.B. On the following explanation I will use a tracepoint named prov:name and has one integer(32 bits) field and char(8 bits) field.
