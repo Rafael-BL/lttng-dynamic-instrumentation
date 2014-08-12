@@ -94,29 +94,70 @@ struct lttng_event_di_field {
 
 ##Tracepoint registration
 ###Pseudo-code
-<pre>
-registerTP(){
+<pre> liblttng-ust.so
+void addIntLen(){
+	event_len += sizeof(int);
 }
-registerProbe()
-{}
-completeRegistration()
-{}
+
+void addCharLen(){
+	event_len += sizeof(char);
+}
+
+void InitCtx(){
+	//We need event lenght to reserve
+	//space in the context ringbuffer
+	if(isTpRegistered){
+		init(ctx, event_len);
+		IsCtxReady = true;
+	}
+}
+
+void writeIntField(int value){
+	if(!isCtxReady)
+		return;
+	write(ctx, &value);	
+}
+void writeCharField(char value){
+	if(!isCtxReady)
+		return;
+	write(ctx, &value);	
+}
+
+void commitEvent(){
+	if(!isCtxReady)
+		return;
+	commit(ctx);
+}
+
+registerTP(){}
+
+registerProbe(){}
+
+completeRegistration(){
+	isTpRegistered = true;
+}
+</pre>
+
+<pre>
+bool isTpRegistered = false;
+bool isCtxReady = false;
+int event_len = 0;
+Context ctx;
+
 lttng_ust_fake_function{
 	registerTP();
 	registerProbe();
 	completeRegistration();
-
-}
-...
-
-
-void interestingFunction(int a, char b)
-{
-
-
 }
 
-
+void interestingFunction(int a, char b){
+	addIntLen();
+	addCharLen();
+	InitCtx();
+	writeIntField(a);
+	writeCharField(b);
+	commitEvent();
+}
 </pre>
 
 ##Overview
