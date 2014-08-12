@@ -24,7 +24,39 @@ Notes and documentation
 #How it is done?
 ##Overview
 ![Alt text](img/lttng-di.png "High level diagram")
+
 ##Structures
-struct tracepoint
-struct lttng_probes_desc;
-struct lttng_event_di_fied;
+<pre>
+struct tracepoint {
+	const char *name;
+	int state;
+	struct tracepoint_probe *probes;
+	int *tracepoint_provider_ref;
+	const char *signature;
+	char padding[TRACEPOINT_PADDING];
+};
+</pre>
+
+<pre>
+struct lttng_probe_desc {
+	const char *provider;
+	const struct lttng_event_desc **event_desc;
+	unsigned int nr_events;
+	struct cds_list_head head;		/* chain registered probes */
+	struct cds_list_head lazy_init_head;
+	int lazy;				/* lazy registration */
+	uint32_t major;
+	uint32_t minor;
+	enum lttng_probe_type type;
+	char padding[LTTNG_UST_PROBE_DESC_PADDING];
+};
+</pre>
+
+<pre>
+struct lttng_event_di_field {
+	const char *name;
+	struct lttng_type type;
+	unsigned int nowrite;	/* do not write into trace */
+	char padding[LTTNG_UST_EVENT_FIELD_PADDING];
+};
+</pre>
