@@ -145,7 +145,7 @@ lttng_ust_fake_function{
 
 </pre>
 
-In the following pseudo code
+The following pseudocode makes it look like function calls are added inside the target function. I doubt that it's how Dyninst really does it but it's simpler for my explanations.
 
 <pre>
 bool isTpRegistered = false;
