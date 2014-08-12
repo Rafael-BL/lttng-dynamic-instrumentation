@@ -24,7 +24,7 @@ Notes and documentation
 #How it is done?
 
 ##Dyninst
-Dyninst is a powerful library that can retreive information on, modify address space, and infect code in a running process. This prototype uses dyninst to copy data structures in the tracee address space and add call to functions for the tracepoint registration and event recording.
+Dyninst is a powerful library that can retreive information on, modify address space, and infect code in a running process. This prototype uses dyninst to copy data structures in the tracee address space and to add calls to functions for the tracepoint registration and event recording.
 
 website: http://www.dyninst.org/
 
