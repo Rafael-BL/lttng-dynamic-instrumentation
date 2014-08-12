@@ -136,19 +136,22 @@ registerProbe(){}
 completeRegistration(){
 	isTpRegistered = true;
 }
-</pre>
-
-<pre>
-bool isTpRegistered = false;
-bool isCtxReady = false;
-int event_len = 0;
-Context ctx;
 
 lttng_ust_fake_function{
 	registerTP();
 	registerProbe();
 	completeRegistration();
 }
+
+</pre>
+
+In the following pseudo code
+
+<pre>
+bool isTpRegistered = false;
+bool isCtxReady = false;
+int event_len = 0;
+Context ctx;
 
 void interestingFunction(int a, char b){
 	addIntLen();
@@ -157,6 +160,7 @@ void interestingFunction(int a, char b){
 	writeIntField(a);
 	writeCharField(b);
 	commitEvent();
+	//... original function
 }
 </pre>
 
