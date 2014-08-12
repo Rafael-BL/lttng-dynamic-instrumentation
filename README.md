@@ -25,7 +25,7 @@ Notes and documentation
 
 
 ##Structures
-N.B. On the following explanation I will use a tracepoint named prov:name and has one integer field and char field.
+N.B. On the following explanation I will use a tracepoint named prov:name and has one integer(32 bits) field and char(8 bits) field.
 
 In order to register a tracepoint at least four structures must be constructed. 
 The tracepoint structure describes its name and signature. Only those two fields are used in this implementation of dynamic instrumentation. The name and signature fields which are respectively prov:name and name in our example.
@@ -76,7 +76,7 @@ struct lttng_event_desc {
 	} u;
 };
 </pre>
-This structure describe a field. In this implementation, the name and the type are useful.
+This structure describe a field. In this implementation, the name and the type are useful. In our exmaple, we would a a field of type 32 bits and 8 bits integer.
 <pre>
 struct lttng_event_di_field {
 	const char *name;
