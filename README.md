@@ -92,7 +92,32 @@ struct lttng_event_di_field {
 };
 </pre>
 
+##Tracepoint registration
+###Pseudo-code
+<pre>
+registerTP(){
+}
+registerProbe()
+{}
+completeRegistration()
+{}
+lttng_ust_fake_function{
+	registerTP();
+	registerProbe();
+	completeRegistration();
 
+}
+...
+
+
+void interestingFunction(int a, char b)
+{
+
+
+}
+
+
+</pre>
 
 ##Overview
 ![Alt text](img/lttng-di.png "High level diagram")
