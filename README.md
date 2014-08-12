@@ -22,9 +22,9 @@ Notes and documentation
 #TODO
 
 #How it is done?
-##Tools
 
-Dyninst
+##Dyninst
+Dyninst is a powerful library that can retreive information on, modify address space, and infect code in a running process.
 website: http://www.dyninst.org/
 git: http://git.dyninst.org/ 
 
