@@ -58,7 +58,7 @@ struct lttng_probe_desc {
 };
 </pre>
 
-This structure represents a tracepoint. At the moment, we are intereseted in its name, its number of field and to its array of field descriptions.
+This structure represents a tracepoint. At the moment, we are interested in its name, its number of field and to its array of field descriptions.
 <pre>
 struct lttng_event_desc {
 	const char *name;
