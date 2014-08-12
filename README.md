@@ -36,7 +36,31 @@ struct tracepoint {
 	char padding[TRACEPOINT_PADDING];
 };
 </pre>
-
+<pre>
+struct lttng_event_di_field {
+	const char *name;
+	struct lttng_type type;
+	unsigned int nowrite;	/* do not write into trace */
+	char padding[LTTNG_UST_EVENT_FIELD_PADDING];
+};
+</pre>
+<pre>
+struct lttng_event_desc {
+	const char *name;
+	void (*probe_callback)(void);
+	const struct lttng_event_ctx *ctx;	/* context */
+	const struct lttng_event_field *fields;	/* event payload */
+	unsigned int nr_fields;
+	const int **loglevel;
+	const char *signature;	/* Argument types/names received */
+	union {
+		struct {
+			const char **model_emf_uri;
+		} ext;
+		char padding[LTTNG_UST_EVENT_DESC_PADDING];
+	} u;
+};
+</pre>
 <pre>
 struct lttng_probe_desc {
 	const char *provider;
@@ -52,11 +76,4 @@ struct lttng_probe_desc {
 };
 </pre>
 
-<pre>
-struct lttng_event_di_field {
-	const char *name;
-	struct lttng_type type;
-	unsigned int nowrite;	/* do not write into trace */
-	char padding[LTTNG_UST_EVENT_FIELD_PADDING];
-};
-</pre>
+
