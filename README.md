@@ -22,10 +22,14 @@ Notes and documentation
 #TODO
 
 #How it is done?
-##Overview
-![Alt text](img/lttng-di.png "High level diagram")
+
 
 ##Structures
+N.B. On the following explanation I will use a tracepoint named prov:name and has one integer field and char field.
+
+In order to register a tracepoint at least four structures must be constructed. 
+Two fields in this structure are used in this implementation of dynamic instrumentation. The name and signature fields which are respectively prov:name and name in our example.
+
 <pre>
 struct tracepoint {
 	const char *name;
@@ -36,14 +40,25 @@ struct tracepoint {
 	char padding[TRACEPOINT_PADDING];
 };
 </pre>
+
+The following structure describes the tracepoints related to a provider. The field provider in this case would be set to "prov". The nr_events is set to the number of events for this provider. The field event_desc represents an array of nr_events event descriptions.
+
 <pre>
-struct lttng_event_di_field {
-	const char *name;
-	struct lttng_type type;
-	unsigned int nowrite;	/* do not write into trace */
-	char padding[LTTNG_UST_EVENT_FIELD_PADDING];
+struct lttng_probe_desc {
+	const char *provider;
+	const struct lttng_event_desc **event_desc;
+	unsigned int nr_events;
+	struct cds_list_head head;		/* chain registered probes */
+	struct cds_list_head lazy_init_head;
+	int lazy;				/* lazy registration */
+	uint32_t major;
+	uint32_t minor;
+	enum lttng_probe_type type;
+	char padding[LTTNG_UST_PROBE_DESC_PADDING];
 };
 </pre>
+
+This structure represents a tracepoint. At the moment, we are intereseted in its name, its number of field and to its array of field descriptions.
 <pre>
 struct lttng_event_desc {
 	const char *name;
@@ -61,19 +76,20 @@ struct lttng_event_desc {
 	} u;
 };
 </pre>
+
 <pre>
-struct lttng_probe_desc {
-	const char *provider;
-	const struct lttng_event_desc **event_desc;
-	unsigned int nr_events;
-	struct cds_list_head head;		/* chain registered probes */
-	struct cds_list_head lazy_init_head;
-	int lazy;				/* lazy registration */
-	uint32_t major;
-	uint32_t minor;
-	enum lttng_probe_type type;
-	char padding[LTTNG_UST_PROBE_DESC_PADDING];
+struct lttng_event_di_field {
+	const char *name;
+	struct lttng_type type;
+	unsigned int nowrite;	/* do not write into trace */
+	char padding[LTTNG_UST_EVENT_FIELD_PADDING];
 };
 </pre>
+
+
+
+##Overview
+![Alt text](img/lttng-di.png "High level diagram")
+
 
 
