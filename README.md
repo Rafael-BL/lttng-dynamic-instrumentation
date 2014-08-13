@@ -94,7 +94,7 @@ struct lttng_event_di_field {
 
 ##Tracepoint registration
 ###Pseudo-code
-<pre> liblttng-ust.so
+<pre> //liblttng-ust.so
 void addIntLen(){
 	event_len += sizeof(int);
 }
@@ -148,6 +148,7 @@ lttng_ust_fake_function{
 The following pseudocode makes it look like function calls are added inside the target function. I doubt that it's how Dyninst really does it but it's simpler for my explanations.
 
 <pre>
+//APP1
 bool isTpRegistered = false;
 bool isCtxReady = false;
 int event_len = 0;
