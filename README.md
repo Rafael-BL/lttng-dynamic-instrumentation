@@ -172,6 +172,13 @@ void interestingFunction(int a, char b){
 1. When the dynamic loader loads the liblttng-ust.so library in the APP's address space, the constructor of the lib is called. This is at this point that the app is registered to the session daemon. Information on the app is transfert to the session daemon, such as the process name and process id.
 2. The session deamon receives the name of the process and se that it matches with a dynamic tracepoint currently enabled in the current session. It uses Dyninst to attach to the process. This put the app in the stopped status.
 3. At this point, the session is attached to the process and has access to the whole app's address space. Using Dyninst, the session daemon retrieves the targeted function and its parameter's name and type through the debugging symbols. Using this tracepoint and probe structres are dynamically generated and copy into the app's address space.
+4. To register a tracepoint, the tracepoint_register and lttng_probe_register functions must be called from the app so we hook calls to those functions to an empty function in the app. This function is call lttng_ust_fake_function and has the only purpose of being hooked on for the registration of tracepoints.
+5. At step 5, the session daemon add instrumentation on the function entry to record an event. The recording of an event is made in three main steps that are initializing a context in the ringbuffer, write the data for each field, and commit the event. Those three steps must be done in this order each time the event is triggered. I hook those functions call to the targeted function's entry.
+6. All the needed changes to the app are done. The session daemon can now continue the execution of the app.
+7. Through a unix socket, the session daemon sends a command to call the lttng_ust_fake_function. This call will trigger the calls that were added in step 4.
+8. The tracepoint_register function is called.
+9. The lttng_probe_register function is called.
+10. After sending any other enabled static tracepoints, the session daemon sends a "Registration done" command that specify that the app can exit the liblttng-ust.so's constructor and eventually start executing the main function.
 ![Alt text](img/lttng-di.png "High level diagram")
 
 
