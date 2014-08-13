@@ -169,7 +169,12 @@ void interestingFunction(int a, char b){
 </pre>
 
 ##Overview
+1. When the dynamic loader loads the liblttng-ust.so library in the APP's address space, the constructor of the lib is called. This is at this point that the app is registered to the session daemon. Information on the app is transfert to the session daemon, such as the process name and process id.
+2. The session deamon receives the name of the process and se that it matches with a dynamic tracepoint currently enabled in the current session. It uses Dyninst to attach to the process. This put the app in the stopped status.
+3. At this point, the session is attached to the process and has access to the whole app's address space. Using Dyninst, the session daemon retrieves the targeted function and its parameter's name and type through the debugging symbols. Using this tracepoint and probe structres are dynamically generated and copy into the app's address space.
 ![Alt text](img/lttng-di.png "High level diagram")
+
+
 
 
 
