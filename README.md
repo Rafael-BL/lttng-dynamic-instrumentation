@@ -15,11 +15,13 @@ Notes and documentation
 2. Removing dynamic tracepoints
 3. Disabling dynamic tracepoints
 4. Probe instrumentation
+5. Detaching and reattaching to the same process. Dyninst doesn't keep any mapping of the memory address used in previous attach. So reattaching and writing to tracee address space will overwrite previously copied data.
 
 #Known bugs
 1. Trigerring tracepoint if the session has not started.
 
 #TODO
+1. Add probe instrumenation (easy)
 
 #How it is done?
 
