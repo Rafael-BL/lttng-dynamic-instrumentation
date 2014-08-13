@@ -47,7 +47,7 @@ struct tracepoint {
 };
 </pre>
 
-The following structure describes the tracepoints related to a provider. The field provider in this case would be set to "prov". The nr_events is set to the number of events for this provider. The field event_desc represents an array of nr_events event descriptions.
+The following structure describes the tracepoints related to a provider. The "provider" field in this case would be set to "prov". The nr_events is set to the number of events for this provider. The field event_desc points to an array of nr_events event descriptions.
 
 <pre>
 struct lttng_probe_desc {
@@ -82,7 +82,7 @@ struct lttng_event_desc {
 	} u;
 };
 </pre>
-This structure describe a field. In this implementation, the name and the type are useful. In our exmaple, we would a a field of type 32 bits and 8 bits integer.
+This structure describe a field. In this implementation, the name and the type are useful. In our exmaple, we would have a field of type 32 bits and 8 bits integer.
 <pre>
 struct lttng_event_di_field {
 	const char *name;
