@@ -1,6 +1,7 @@
 lttng-dynamic-instrumentation
 =============================
 #Current status
+
 In the current state of the project, the main feature is to ability to run lttng trace command. Using the '-f' argument, you can specify which function on the application you want traced. It then runs the application with a tracepoint at the entry and exit of the function.
 <pre>
 $>lttng trace -f traverse_trace_dir babeltrace ~/lttng-traces/auto-20140814-142257/                                     
@@ -34,6 +35,31 @@ Trace directory: net://localhost/host/gamma/auto-20140814-153705
 ^CWaiting for data availability
 Tracing stopped for session auto-20140814-125539
 Session auto-20140814-125539 destroyed
+</pre>
+
+The user can also list the functions that can be instrumented in the binary.
+
+<pre> 
+$> lttng trace -l babeltrace                                                                                                                                                                                     
+list_formats(FILE *fp)
+usage(FILE *fp)
+strlower(char *str)
+get_names_args(poptContext *pc)
+get_fields_args(poptContext *pc)
+parse_options(int argc,  *argv)
+traverse_trace_dir(const char *fpath, const stat *sb, int tflag, FTW *ftwbuf)
+trace_pre_handler(bt_trace_descriptor *td_write, bt_context *ctx)
+trace_post_handler(bt_trace_descriptor *td_write, bt_context *ctx)
+convert_trace(bt_trace_descriptor *td_write, bt_context *ctx)
+_init()
+_start()
+bt_context_add_traces_recursive(bt_context *ctx, const char *path, const char *format_str,  *packet_seek)
+main(int argc,  *argv)
+__libc_csu_init()
+__libc_csu_fini()
+_fini()
+__do_global_dtors_aux()
+frame_dummy()
 </pre>
 
 #Working
