@@ -1,6 +1,7 @@
 lttng-dynamic-instrumentation
 =============================
 #Current status
+In the current state of the project, the main feature is to ability to run lttng trace command. Using the '-f' argument, you can specify which function on the application you want traced.
 <pre>
 $> lttng trace -f montreal -n foo ./app
 Trace directory: net://localhost/host/gamma/auto-20140814-125539
@@ -15,7 +16,7 @@ Trace directory: net://localhost/host/gamma/auto-20140814-125539
 Tracing stopped for session auto-20140814-125539
 Session auto-20140814-125539 destroyed
 </pre>
-Notes and documentation
+
 #Working
 1. Instrument function entry
 2. Retrieve function parameter type
