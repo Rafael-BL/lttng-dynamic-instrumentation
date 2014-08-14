@@ -25,6 +25,7 @@ Notes and documentation
 1. Add probe instrumenation (easy)
 2. Probe regristration moved to the session daemon(hard)
 
+#How it is done?
 ##Overview
 1. When the dynamic loader loads the liblttng-ust.so library in the APP's address space, the constructor of the lib is called. This is at this point that the app is registered to the session daemon. Information on the app is sent to the session daemon, such as the process name and process id.
 2. The session daemon receives the name of the process and se that it matches with a dynamic tracepoint currently enabled in the current session. It uses Dyninst to attach to the process. This put the app in the stopped status.
@@ -37,9 +38,6 @@ Notes and documentation
 9. The lttng_probe_register function is called.
 10. After sending any other enabled static tracepoints, the session daemon sends a "Registration done" command that specify that the app can exit the liblttng-ust.so's constructor and eventually start executing the main function.
 ![Alt text](img/lttng-di.png "High level diagram")
-
-#How it is done?
-
 ##Dyninst
 Dyninst is a powerful library that can retreive information on, modify address space, and infect code in a running process. This prototype uses dyninst to copy data structures in the tracee address space and to add calls to functions for the tracepoint registration and event recording.
 
