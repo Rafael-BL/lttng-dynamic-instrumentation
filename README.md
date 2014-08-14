@@ -63,7 +63,9 @@ lttng_ust_fake_function{
 </pre>
 
 ##Event recording
-The following pseudocode makes it look like function calls are added inside the target function. I doubt that it's how Dyninst really does it but it's simpler for my explanations.
+To trace an event four main things need to be done. Firstly, we have to compute the sum of the length of each field on the event. This sum is not static since some CTF fields are of variable length(e.g. ctf_sequence). Secondly, we have to initialize a ringbuffer context for this tracepoint and its length. Thirdly, we write each field in the ringbuffer. Finally, we commit the context. Once a context is commited it can be consumed by the consumer daemon and in turn write to a file.
+
+N.B. The following pseudocode makes it look like function calls are added inside the target function. I doubt that it's how Dyninst really does it but it's simpler for my explanations.
 ###Pseudo-code
 <pre>
 bool isCtxReady = false;
