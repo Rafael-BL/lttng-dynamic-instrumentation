@@ -2,7 +2,7 @@ lttng-dynamic-instrumentation
 =============================
 #Current status
 <pre>
-$> lttng trace -f montreal -n foo ../dyninst-sandbox/suspect                
+$> lttng trace -f montreal -n foo ./app
 Trace directory: net://localhost/host/gamma/auto-20140814-125539
 
 [12:55:42.205438197] (+?.?????????) gamma dyn-tp:foo_entry: { cpu_id = 2 }, { vpid = 7763 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
