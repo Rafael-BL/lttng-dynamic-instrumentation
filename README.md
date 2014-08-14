@@ -3,15 +3,33 @@ lttng-dynamic-instrumentation
 #Current status
 In the current state of the project, the main feature is to ability to run lttng trace command. Using the '-f' argument, you can specify which function on the application you want traced. It then runs the application with a tracepoint at the entry and exit of the function.
 <pre>
-$> lttng trace -f montreal ./app                                                                                                     
-Trace directory: net://localhost/host/gamma/auto-20140814-125539
+$>lttng trace -f traverse_trace_dir babeltrace ~/lttng-traces/auto-20140814-142257/                                     
+Trace directory: net://localhost/host/gamma/auto-20140814-153705
 
-[15:18:37.166700917] (+?.?????????) gamma dyn-tp:montreal_entry: { cpu_id = 0 }, { vpid = 30714 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
-[15:18:37.166757457] (+0.000056540) gamma dyn-tp:montreal_exit: { cpu_id = 0 }, { vpid = 30714 }, { }
-[15:18:38.167020322] (+1.000262865) gamma dyn-tp:montreal_entry: { cpu_id = 0 }, { vpid = 30714 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
-[15:18:38.167056287] (+0.000035965) gamma dyn-tp:montreal_exit: { cpu_id = 0 }, { vpid = 30714 }, { }
-[15:18:39.167177822] (+1.000121535) gamma dyn-tp:montreal_entry: { cpu_id = 0 }, { vpid = 30714 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
-[15:18:39.167210447] (+0.000032625) gamma dyn-tp:montreal_exit: { cpu_id = 0 }, { vpid = 30714 }, { }
+[15:37:14.911798248] (+?.?????????) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 47, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257", sb = 0x7FFFEB6518D0, tflag = 1, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911829051] (+0.000030803) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911846871] (+0.000017820) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 54, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel", sb = 0x7FFFEB6516A0, tflag = 1, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911859183] (+0.000012312) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911869613] (+0.000010430) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 65, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/channel0_2", sb = 0x7FFFEB651540, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911871701] (+0.000002088) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911879393] (+0.000007692) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 60, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/index", sb = 0x7FFFEB651540, tflag = 1, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911884451] (+0.000005058) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911889628] (+0.000005177) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 75, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/index/channel0_0.idx", sb = 0x7FFFEB6513E0, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911891326] (+0.000001698) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911893043] (+0.000001717) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 75, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/index/channel0_3.idx", sb = 0x7FFFEB6513E0, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911894626] (+0.000001583) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911896565] (+0.000001939) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 75, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/index/channel0_1.idx", sb = 0x7FFFEB6513E0, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911898026] (+0.000001461) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911899785] (+0.000001759) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 75, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/index/channel0_2.idx", sb = 0x7FFFEB6513E0, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911901256] (+0.000001471) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911908823] (+0.000007567) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 63, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/metadata", sb = 0x7FFFEB651540, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911910373] (+0.000001550) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911912170] (+0.000001797) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 65, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/channel0_3", sb = 0x7FFFEB651540, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911913680] (+0.000001510) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911915293] (+0.000001613) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 65, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/channel0_0", sb = 0x7FFFEB651540, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911916751] (+0.000001458) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
+[15:37:14.911918508] (+0.000001757) gamma dyn-tp:traverse_trace_dir_entry: { cpu_id = 3 }, { vpid = 2499 }, { _fpath_length = 65, fpath = "/home/frdeso/lttng-traces/auto-20140814-142257/kernel/channel0_1", sb = 0x7FFFEB651540, tflag = 0, ftwbuf = 0x7FFFEB651898 }
+[15:37:14.911919938] (+0.000001430) gamma dyn-tp:traverse_trace_dir_exit: { cpu_id = 3 }, { vpid = 2499 }, { }
 
 ^CWaiting for data availability
 Tracing stopped for session auto-20140814-125539
