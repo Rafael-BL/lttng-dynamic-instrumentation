@@ -14,8 +14,6 @@ Trace directory: net://localhost/host/gamma/auto-20140814-125539
 ^CWaiting for data availability
 Tracing stopped for session auto-20140814-125539
 Session auto-20140814-125539 destroyed
-
-
 </pre>
 Notes and documentation
 #Working
