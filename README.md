@@ -6,12 +6,13 @@ In the current state of the project, the main feature is to ability to run lttng
 $> lttng trace -f montreal ./app                                                                                                     
 Trace directory: net://localhost/host/gamma/auto-20140814-125539
 
-[12:55:42.205438197] (+?.?????????) gamma dyn-tp:foo_entry: { cpu_id = 2 }, { vpid = 7763 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
-[12:55:42.205493582] (+0.000055385) gamma dyn-tp:foo_exit: { cpu_id = 2 }, { vpid = 7763 }, { }
-[12:55:43.205653872] (+1.000160290) gamma dyn-tp:foo_entry: { cpu_id = 2 }, { vpid = 7763 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
-[12:55:43.205684182] (+0.000030310) gamma dyn-tp:foo_exit: { cpu_id = 2 }, { vpid = 7763 }, { }
-[12:55:44.205854602] (+1.000170420) gamma dyn-tp:foo_entry: { cpu_id = 2 }, { vpid = 7763 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
-[12:55:44.205885462] (+0.000030860) gamma dyn-tp:foo_exit: { cpu_id = 2 }, { vpid = 7763 }, { }
+[15:18:37.166700917] (+?.?????????) gamma dyn-tp:montreal_entry: { cpu_id = 0 }, { vpid = 30714 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
+[15:18:37.166757457] (+0.000056540) gamma dyn-tp:montreal_exit: { cpu_id = 0 }, { vpid = 30714 }, { }
+[15:18:38.167020322] (+1.000262865) gamma dyn-tp:montreal_entry: { cpu_id = 0 }, { vpid = 30714 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
+[15:18:38.167056287] (+0.000035965) gamma dyn-tp:montreal_exit: { cpu_id = 0 }, { vpid = 30714 }, { }
+[15:18:39.167177822] (+1.000121535) gamma dyn-tp:montreal_entry: { cpu_id = 0 }, { vpid = 30714 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
+[15:18:39.167210447] (+0.000032625) gamma dyn-tp:montreal_exit: { cpu_id = 0 }, { vpid = 30714 }, { }
+
 ^CWaiting for data availability
 Tracing stopped for session auto-20140814-125539
 Session auto-20140814-125539 destroyed
