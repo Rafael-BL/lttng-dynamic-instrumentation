@@ -23,6 +23,7 @@ Notes and documentation
 
 #TODO
 1. Add probe instrumenation (easy)
+2. Probe regristration moved to the session daemon(hard)
 
 #How it is done?
 
