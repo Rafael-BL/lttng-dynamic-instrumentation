@@ -38,6 +38,7 @@ Notes and documentation
 9. The lttng_probe_register function is called.
 10. After sending any other enabled static tracepoints, the session daemon sends a "Registration done" command that specify that the app can exit the liblttng-ust.so's constructor and eventually start executing the main function.
 ![Alt text](img/lttng-di.png "High level diagram")
+
 ##Dyninst
 Dyninst is a powerful library that can retreive information on, modify address space, and infect code in a running process. This prototype uses dyninst to copy data structures in the tracee address space and to add calls to functions for the tracepoint registration and event recording.
 
@@ -46,9 +47,9 @@ website: http://www.dyninst.org/
 git: http://git.dyninst.org/ 
 
 ##Structures
-N.B. On the following explanation I will use a tracepoint named prov:name and has one integer(32 bits) field and char(8 bits) field.
+N.B. In the following explanation, I will use a tracepoint named prov:name and has one integer(32 bits) field and char(8 bits) field.
 
-In order to register a tracepoint at least four structures must be constructed. 
+In order to register a tracepoint, at least four structures must be constructed. 
 The tracepoint structure describes its name and signature. Only those two fields are used in this implementation of dynamic instrumentation. The name and signature fields which are respectively prov:name and name in our example.
 
 <pre>
