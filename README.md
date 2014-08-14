@@ -77,6 +77,7 @@ frame_dummy()
 4. Probe instrumentation
 5. Detaching and reattaching to the same process. Dyninst doesn't keep any mapping of the memory address used in previous attach. So reattaching and writing to tracee address space will overwrite previously copied data.
 6. Tracing floating point parameter
+7. Tracing function calls to a dynamic library(e.g. malloc)
 
 #Known bugs
 1. Trigerring tracepoint if the session has not started.
