@@ -1,6 +1,22 @@
 lttng-dynamic-instrumentation
 =============================
+#Current status
+<pre>
+lttng trace -f montreal -n foo ../dyninst-sandbox/suspect                
+Trace directory: net://localhost/host/gamma/auto-20140814-125539
 
+[12:55:42.205438197] (+?.?????????) gamma dyn-tp:foo_entry: { cpu_id = 2 }, { vpid = 7763 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
+[12:55:42.205493582] (+0.000055385) gamma dyn-tp:foo_exit: { cpu_id = 2 }, { vpid = 7763 }, { }
+[12:55:43.205653872] (+1.000160290) gamma dyn-tp:foo_entry: { cpu_id = 2 }, { vpid = 7763 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
+[12:55:43.205684182] (+0.000030310) gamma dyn-tp:foo_exit: { cpu_id = 2 }, { vpid = 7763 }, { }
+[12:55:44.205854602] (+1.000170420) gamma dyn-tp:foo_entry: { cpu_id = 2 }, { vpid = 7763 }, { a = 24, _b_length = 33, b = "Life is like a box of chocolates", c = 112 }
+[12:55:44.205885462] (+0.000030860) gamma dyn-tp:foo_exit: { cpu_id = 2 }, { vpid = 7763 }, { }
+^CWaiting for data availability
+Tracing stopped for session auto-20140814-125539
+Session auto-20140814-125539 destroyed
+
+
+</pre>
 Notes and documentation
 #Working
 1. Instrument function entry
