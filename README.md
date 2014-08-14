@@ -52,7 +52,7 @@ void addCharLen(){
 }
 
 void InitCtx(){
-	//We need event lenght to reserve
+	//We need event length to reserve
 	//space in the context ringbuffer
 	if(isTpRegistered){
 		init(ctx, event_len);
