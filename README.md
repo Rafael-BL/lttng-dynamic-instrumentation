@@ -2,7 +2,7 @@ lttng-dynamic-instrumentation
 =============================
 #Current status
 
-In the current state of the project, the main feature is to ability to run lttng trace command. Using the '-f' argument, you can specify which function on the application you want traced. It then runs the application with a tracepoint at the entry and exit of the function.
+In the current state of the project, the main feature is to ability to run lttng trace command. Using the '-f' argument, the user can specify which function in the application he want traced. It then runs the application with a tracepoint at the entry and exit of the function.
 <pre>
 $>lttng trace -f traverse_trace_dir babeltrace ~/lttng-traces/auto-20140814-142257/                                     
 Trace directory: net://localhost/host/gamma/auto-20140814-153705
