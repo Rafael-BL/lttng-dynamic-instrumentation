@@ -70,6 +70,10 @@ frame_dummy()
 4. Retrieve function parameter value
 5. Instrument function exit
 
+## Limitations
+
+1. Application must be linked of LD_PRELOADed with liblttng-ust.so
+
 ## Not working
 
 1. Inserting multiple dynamic tracepoints
