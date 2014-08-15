@@ -80,12 +80,13 @@ frame_dummy()
 2. Removing dynamic tracepoints
 3. Disabling dynamic tracepoints
 4. Probe instrumentation
-5. Detaching and reattaching to the same process. Dyninst doesn't keep any mapping of the memory address used in the previous attach, which means reattaching and writing to the tracee's address space will overwrite previously copied data.
+5. Detaching and reattaching to the same process. Dyninst doesn't keep any mapping of the memory addresses used in the previous attach, which means reattaching and writing to the tracee's address space will overwrite previously copied data.
 6. Tracing floating point parameter
 
 ## Known bugs
 
 1. Triggering a tracepoint if the session has not started.
+2. Tracing a char pointer parameter that doesn't contain ASCII characters but points to a buffer. Should print pointed address by default.
 
 ## TODO
 
