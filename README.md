@@ -72,7 +72,7 @@ frame_dummy()
 
 ## Limitations
 
-1. Application must be linked of LD_PRELOADed with liblttng-ust.so
+1. Application must be linked or LD_PRELOADed with liblttng-ust.so
 
 ## Not working
 
