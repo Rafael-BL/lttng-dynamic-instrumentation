@@ -73,6 +73,7 @@ frame_dummy()
 ## Limitations
 
 1. Application must be linked or LD_PRELOADed with liblttng-ust.so
+2. The /proc/sys/kernel/yama/ptrace_scope flag must be set to 1.
 
 ## Not working
 
